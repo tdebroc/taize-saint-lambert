@@ -456,6 +456,28 @@ section { padding: clamp(34px, 6vw, 60px) 0; }
   background: linear-gradient(120deg, var(--orange), var(--orange-2));
   color: #fff; border-radius: 8px; padding: 2px 10px; font-size: .82rem; font-weight: 700;
 }
+.chant-act {
+  display: inline-grid; place-items: center;
+  width: 26px; height: 26px; margin-left: 4px;
+  border-radius: 8px;
+  font-size: .82rem; line-height: 1;
+  text-decoration: none;
+  color: var(--orange-dark);
+  background: rgba(255,255,255,0.65);
+  border: 1px solid var(--glass-brd);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
+}
+.chant-act:hover { transform: translateY(-2px); background: #fff; box-shadow: var(--shadow-sm); text-decoration: none; }
+.chant-act:first-of-type { margin-left: 10px; }
+.chant-hint {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-size: .92rem; color: var(--ink-soft);
+  padding: 14px 18px; margin-bottom: 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid var(--glass-brd);
+}
+.chant-hint .k { font-weight: 700; color: var(--orange-dark); }
 .verse { white-space: pre-line; color: var(--ink-soft); margin: 0; }
 .verse.psalm { font-style: italic; }
 .ref { color: var(--orange-dark); font-weight: 600; font-size: .95rem; margin: 0 0 10px; }
