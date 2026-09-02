@@ -44,7 +44,7 @@ body::before {
   content: "";
   position: fixed;
   inset: -20vmax;
-  z-index: -2;
+  z-index: -3;
   background:
     radial-gradient(38vmax 38vmax at 12% 8%, rgba(255, 180, 84, 0.30), transparent 60%),
     radial-gradient(42vmax 42vmax at 88% 12%, rgba(255, 106, 61, 0.22), transparent 60%),
@@ -57,9 +57,69 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* ---------- Candlelight background (Taizé) ---------- */
+.fx {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.fx .embers { position: absolute; inset: 0; width: 100%; height: 100%; }
+.candle {
+  position: absolute;
+  width: 16px;
+  height: 26px;
+  filter: blur(0.4px);
+  transform-origin: 50% 100%;
+  opacity: 0.9;
+}
+/* soft glow halo around each flame */
+.candle::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 46%;
+  width: 90px; height: 90px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,190,110,0.42), rgba(255,140,60,0.14) 45%, transparent 68%);
+  filter: blur(6px);
+  animation: glow 3.6s ease-in-out infinite;
+}
+/* the flame teardrop */
+.candle::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 0;
+  width: 100%; height: 100%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 50% 50% / 62% 62% 40% 40%;
+  background:
+    radial-gradient(60% 55% at 50% 78%, #fff6d8 0%, #ffd27a 32%, #ff9b3d 62%, rgba(255,120,40,0.25) 100%);
+  box-shadow: 0 0 14px 3px rgba(255,150,60,0.55);
+  animation: flicker 2.4s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+.candle.sm { transform: scale(0.7); }
+.candle.lg { transform: scale(1.35); }
+
+@keyframes flicker {
+  0%,100% { transform: translateX(-50%) scaleY(1) scaleX(1) rotate(-1deg); opacity: 0.95; }
+  20%     { transform: translateX(-51%) scaleY(1.08) scaleX(0.94) rotate(1.5deg); opacity: 1; }
+  40%     { transform: translateX(-49%) scaleY(0.92) scaleX(1.05) rotate(-1.5deg); opacity: 0.82; }
+  60%     { transform: translateX(-50.5%) scaleY(1.05) scaleX(0.97) rotate(1deg); opacity: 1; }
+  80%     { transform: translateX(-49.5%) scaleY(0.96) scaleX(1.03) rotate(-0.5deg); opacity: 0.88; }
+}
+@keyframes glow {
+  0%,100% { opacity: 0.55; transform: translate(-50%,-50%) scale(1); }
+  30%     { opacity: 0.9;  transform: translate(-50%,-50%) scale(1.12); }
+  55%     { opacity: 0.5;  transform: translate(-50%,-50%) scale(0.92); }
+  75%     { opacity: 0.85; transform: translate(-50%,-50%) scale(1.06); }
 }
 
 @keyframes drift {
@@ -418,8 +478,9 @@ section { padding: clamp(34px, 6vw, 60px) 0; }
 [data-reveal].in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, body::before { animation: none !important; transition: none !important; }
+  *, body::before, .candle::before, .candle::after { animation: none !important; transition: none !important; }
   [data-reveal] { opacity: 1; transform: none; }
+  .fx { display: none; }
 }
 
 @media (max-width: 640px) {
