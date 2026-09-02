@@ -220,6 +220,21 @@ a:hover { text-decoration: none; }
   margin-top: 32px;
 }
 
+/* Taizé cross at top of hero */
+.hero-cross {
+  display: block;
+  width: clamp(78px, 13vw, 132px);
+  height: auto;
+  margin: 0 auto 14px;
+  filter: drop-shadow(0 12px 26px rgba(255, 106, 61, 0.42));
+  animation: floaty 6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-10px) rotate(2deg); }
+}
+
 /* Animated flame / halo behind hero */
 .halo {
   position: absolute;
