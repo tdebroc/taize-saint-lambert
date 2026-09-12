@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster – Prière esprit Taizé (éditable)</title>
+<!--
+  POSTER / FLYER ÉDITABLE — Prière esprit Taizé, Saint-Lambert de Vaugirard
+  ---------------------------------------------------------------------
+  • Tout le texte est modifiable directement dans ce fichier.
+  • Pour imprimer : ouvrir dans un navigateur → Imprimer (Cmd/Ctrl + P)
+      - Format : A3 (ou A2, voir la règle @page ci-dessous)
+      - Marges : Aucune  ·  Cochez « Graphismes d'arrière-plan »
+  • Images utilisées (dans le même dossier) :
+      "Taize cross .png", "bougies photo.png", "qr_code_to_website.png"
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F5871F;
+    --orange-2: #FF6A3D;
+    --amber: #FFB454;
+    --orange-dark: #C25A0C;
+    --cream: #FDF7F0;
+    --ink: #241E19;
+    --ink-soft: #6A5F55;
+    --glass: rgba(255,255,255,0.72);
+    --glass-brd: rgba(255,255,255,0.8);
+    --shadow-sm: 0 4px 18px rgba(90,55,15,0.08);
+    --shadow-md: 0 14px 44px rgba(90,55,15,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  html, body {
+    background: #e9e2d8;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- Format d'impression : A3 par défaut. Pour A2, remplacez "A3" par "A2". ---- */
+  @page { size: A3; margin: 0; }
+
+  /* Aperçu écran : on centre le poster */
+  body { display: flex; justify-content: center; padding: 24px; }
+
+  .poster {
+    position: relative;
+    width: 297mm;              /* A3 portrait — passez à 420mm pour A2 */
+    height: 420mm;             /* A3 portrait — passez à 594mm pour A2 */
+    background:
+      radial-gradient(38% 26% at 14% 10%, rgba(255,180,84,0.35), transparent 62%),
+      radial-gradient(34% 24% at 88% 14%, rgba(255,106,61,0.22), transparent 60%),
+      var(--cream);
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(90,55,15,0.25);
+  }
+
+  /* Cadre arrondi intérieur */
+  .frame {
+    position: absolute;
+    inset: 12mm;
+    z-index: 2;
+    border: 2px solid rgba(245,135,31,0.35);
+    border-radius: 16mm;
+    padding: 14mm 16mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Bandeau public */
+  .pill {
+    background: linear-gradient(100deg, var(--orange), var(--orange-2));
+    color: #fff;
+    font-weight: 700;
+    font-size: 15pt;
+    letter-spacing: .01em;
+    padding: 9px 26px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .cross { width: 34mm; height: auto; margin: 10mm 0 4mm; }
+
+  h1 {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 78pt;
+    line-height: 0.94;
+    letter-spacing: -0.01em;
+    background: linear-gradient(96deg, var(--orange) 0%, var(--orange-2) 70%, var(--orange-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+  }
+
+  .tagline {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 26pt;
+    color: var(--ink);
+    margin-top: 4mm;
+  }
+
+  /* Mention œcuménique */
+  .ecumenical {
+    margin-top: 6mm;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--glass);
+    border: 1px solid var(--glass-brd);
+    box-shadow: var(--shadow-sm);
+    border-radius: 999px;
+    padding: 9px 22px;
+    font-weight: 700;
+    font-size: 14.5pt;
+    color: var(--orange-dark);
+  }
+  .ecumenical .x { color: var(--orange); font-size: 16pt; }
+
+  /* Cartes Quand / Où */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+    width: 100%;
+    margin-top: 9mm;
+  }
+  .card {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid var(--glass-brd);
+    border-radius: 14px;
+    box-shadow: var(--shadow-md);
+    padding: 8mm 6mm;
+  }
+  .card .label {
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-size: 11pt;
+    color: var(--orange);
+  }
+  .card .big {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 22pt;
+    line-height: 1.15;
+    margin-top: 4mm;
+  }
+  .card small { display: block; margin-top: 3mm; color: var(--ink-soft); font-size: 12.5pt; }
+
+  .lead {
+    margin-top: 9mm;
+    max-width: 46ch;
+    font-size: 16pt;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .lead b { color: var(--orange-dark); }
+
+  /* Dates */
+  .dates-head {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 10mm;
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 24pt;
+  }
+  .dates-head .year { color: var(--orange); }
+  .dates {
+    margin-top: 6mm;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5mm;
+    width: 100%;
+  }
+  .chip {
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--glass-brd);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    padding: 5mm 2mm;
+  }
+  .chip .d { font-family: "Fraunces", serif; font-weight: 700; font-size: 22pt; color: var(--orange-dark); line-height: 1; }
+  .chip .m { display: block; margin-top: 2mm; font-size: 10.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* Photo bougie en bas */
+  .candle {
+    position: absolute;
+    left: 0; bottom: 0;
+    z-index: 1;
+    width: 44%;
+    height: 26%;
+    object-fit: cover;
+    object-position: center;
+    -webkit-mask-image: linear-gradient(105deg, #000 50%, transparent 90%);
+    mask-image: linear-gradient(105deg, #000 50%, transparent 90%);
+    opacity: .95;
+  }
+
+  /* Bloc QR */
+  .qr-block {
+    margin-top: auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid var(--glass-brd);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    padding: 6mm 7mm;
+  }
+  .qr-block img { width: 30mm; height: 30mm; border-radius: 6px; }
+  .qr-block .t { text-align: left; }
+  .qr-block .t strong { font-family: "Fraunces", serif; font-weight: 600; font-size: 17pt; display: block; }
+  .qr-block .t span { color: var(--ink-soft); font-size: 12pt; }
+  .qr-block .t .cta { color: var(--orange-dark); font-weight: 700; }
+
+  @media print {
+    html, body { padding: 0; background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .poster { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="frame">
+
+      <div class="pill">Pour les 18–35 ans &amp; tous ceux qui le souhaitent</div>
+
+      <img class="cross" src="Taize cross .png" alt="Croix de Taizé">
+
+      <h1>Prière<br>esprit Taizé</h1>
+      <div class="tagline">Suivie d'un moment convivial</div>
+
+      <div class="ecumenical"><span class="x">✝</span> Rencontre œcuménique — ouverte à toutes les confessions chrétiennes</div>
+      <div class="ecumenical">Organisée par des bénévoles de la paroisse Saint-Lambert · sans frère de Taizé</div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="label">Quand</div>
+          <div class="big">Chaque 2<sup>e</sup> mardi du mois</div>
+          <small>à 20h00</small>
+        </div>
+        <div class="card">
+          <div class="label">Où</div>
+          <div class="big">Crypte Saint-Lambert de Vaugirard</div>
+          <small>Entrée sur le côté de l'église · Paris 15<sup>e</sup></small>
+        </div>
+      </div>
+
+      <p class="lead">Viens vivre un moment de paix et de simplicité : <b>chants méditatifs</b>, <b>silence</b>, <b>Parole de Dieu</b>… Une halte spirituelle ouverte à tous, au cœur de la semaine.</p>
+
+      <div class="dates-head">Prochaines dates <span class="year">2026–2027</span></div>
+      <div class="dates">
+        <div class="chip"><span class="d">8</span><span class="m">Sept.</span></div>
+        <div class="chip"><span class="d">13</span><span class="m">Oct.</span></div>
+        <div class="chip"><span class="d">10</span><span class="m">Nov.</span></div>
+        <div class="chip"><span class="d">8</span><span class="m">Déc.</span></div>
+        <div class="chip"><span class="d">12</span><span class="m">Janv.</span></div>
+        <div class="chip"><span class="d">9</span><span class="m">Févr.</span></div>
+        <div class="chip"><span class="d">9</span><span class="m">Mars</span></div>
+        <div class="chip"><span class="d">13</span><span class="m">Avril</span></div>
+        <div class="chip"><span class="d">11</span><span class="m">Mai</span></div>
+        <div class="chip"><span class="d">8</span><span class="m">Juin</span></div>
+      </div>
+
+      <div class="qr-block">
+        <img src="qr_code_to_website.png" alt="QR code vers le site">
+        <div class="t">
+          <strong>Toutes les infos &amp; prières</strong>
+          <span>Paroisse Saint-Lambert de Vaugirard · Paris 15<sup>e</sup></span><br>
+          <span class="cta">Scanne le QR code pour visiter notre site →</span>
+        </div>
+      </div>
+
+    </div>
+    <img class="candle" src="bougies photo.png" alt="">
+  </div>
+</body>
+</html>
