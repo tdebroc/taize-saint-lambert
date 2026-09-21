@@ -29,6 +29,36 @@
     }, { passive: true });
   }
 
+  // ---- Contact form → opens the visitor's mail client (no backend needed) ----
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const RECIPIENT = 'taize.saint.lambert.dv@gmail.com';
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (contactForm.name.value || '').trim();
+      const email = (contactForm.email.value || '').trim();
+      const message = (contactForm.message.value || '').trim();
+
+      const subject = name
+        ? `Prière Taizé — message de ${name}`
+        : 'Prière Taizé — message depuis le site';
+
+      const bodyLines = [
+        message,
+        '',
+        '—',
+        name ? `Nom : ${name}` : '',
+        email ? `Email : ${email}` : ''
+      ].filter(Boolean);
+
+      const href = 'mailto:' + RECIPIENT
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      window.location.href = href;
+    });
+  }
+
   // ---- Floating candlelight embers (canvas) ----
   const canvas = document.querySelector('.fx .embers');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -517,6 +517,46 @@ section { padding: clamp(34px, 6vw, 60px) 0; }
 }
 .back-link:hover { transform: translateX(-3px); box-shadow: var(--shadow-sm); }
 
+/* ---------- Contact ---------- */
+.contact { padding: clamp(26px, 4vw, 40px); border-radius: var(--radius-lg); }
+.contact-intro { margin: 0 0 24px; color: var(--ink-soft); font-size: 1.06rem; max-width: 56ch; }
+.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.contact-form .field { display: flex; flex-direction: column; gap: 8px; }
+.contact-form .field-full { grid-column: 1 / -1; }
+.contact-form label {
+  font-size: .82rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--orange-dark);
+}
+.contact-form label .opt { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--ink-soft); }
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit; font-size: 1rem; color: var(--ink);
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--glass-brd);
+  background: rgba(255,255,255,0.7);
+  transition: border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+  width: 100%;
+  resize: vertical;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: rgba(106,95,85,0.6); }
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(245,135,31,0.16);
+}
+.contact-actions {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px;
+  margin-top: 4px;
+}
+.contact-actions .btn { border: 0; cursor: pointer; font-family: inherit; }
+.contact-mail { font-weight: 600; color: var(--orange-dark); }
+.contact-mail:hover { text-decoration: underline; }
+.contact-note { margin: 0; font-size: .86rem; color: var(--ink-soft); }
+
 /* ---------- Footer ---------- */
 .site-footer {
   margin-top: 50px;
@@ -546,4 +586,5 @@ section { padding: clamp(34px, 6vw, 60px) 0; }
   .info { grid-template-columns: 1fr; }
   .nav .links a { padding: 8px 10px; }
   .prayer-list .item strong { font-size: 1.2rem; }
+  .contact-form { grid-template-columns: 1fr; }
 }

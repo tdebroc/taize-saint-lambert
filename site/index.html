@@ -32,6 +32,7 @@
   <div class="links">
     <a href="#dates">Dates</a>
     <a href="#prieres">Prières</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -126,12 +127,41 @@
     </ul>
   </section>
 
+  <section id="contact">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Nous écrire</span>
+      <h2>Une question&nbsp;? Envie de participer&nbsp;?</h2>
+    </div>
+    <div class="contact glass" data-reveal>
+      <p class="contact-intro">Écris-nous un mot&nbsp;: pour poser une question, proposer un coup de main, rejoindre l'équipe des bénévoles ou simplement être tenu au courant des prochaines prières.</p>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="field">
+          <label for="cf-name">Ton prénom</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Marie">
+        </div>
+        <div class="field">
+          <label for="cf-email">Ton email <span class="opt">(pour qu'on puisse te répondre)</span></label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="marie@exemple.fr">
+        </div>
+        <div class="field field-full">
+          <label for="cf-message">Ton message</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="Bonjour, je souhaiterais…"></textarea>
+        </div>
+        <div class="contact-actions field-full">
+          <button type="submit" class="btn btn-primary">Envoyer le message →</button>
+          <a class="contact-mail" href="mailto:taize.saint.lambert.dv@gmail.com">taize.saint.lambert.dv@gmail.com</a>
+        </div>
+        <p class="contact-note field-full">En cliquant sur « Envoyer », ton logiciel de messagerie s'ouvre avec le message pré-rempli.</p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <span><strong>Prière esprit Taizé</strong> — Crypte Saint-Lambert de Vaugirard, Paris 15<sup>e</sup></span>
-    <span>Paroisse Saint-Lambert de Vaugirard</span>
+    <span>Paroisse Saint-Lambert de Vaugirard · <a href="mailto:taize.saint.lambert.dv@gmail.com">taize.saint.lambert.dv@gmail.com</a></span>
   </div>
 </footer>
 
