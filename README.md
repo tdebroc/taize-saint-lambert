@@ -14,6 +14,21 @@ Site en ligne : https://tdebroc.github.io/taize-saint-lambert/
 - `*.html` à la racine — flyers / posters imprimables (A5, A2/A3), éditables dans le navigateur.
 - `*.pdf`, `*.png` à la racine — versions exportées et images sources.
 
+## Analyse des chants (Excel)
+
+`tools/analyse_chants.py` liste les chants des carnets (`carnet chants/*.pdf`), compte leurs
+occurrences dans `site/prieres/AAAA-MM-JJ.html` et génère `analyse_chants.xlsx`.
+Dans l'onglet *Analyse*, la ligne « Inclure » (1/0) au-dessus de chaque date permet
+d'exclure des prières (ex. les plus anciennes) ; le classement se recalcule.
+
+```bash
+pip install -r tools/requirements.txt   # + pdftotext : brew install poppler
+python3 tools/analyse_chants.py [--depuis 2026-09-01]
+```
+
+Après l'ajout d'une prière, relancer le script. Si un chant est écrit différemment dans
+une prière et dans le carnet, ajouter un alias dans `ALIASES` (en tête du script).
+
 ## 🚀 Publication / Republication (IMPORTANT)
 
 **Le site est publié via GitHub Pages, alimenté par GitHub Actions.**
