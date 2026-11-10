@@ -566,6 +566,9 @@ section { padding: clamp(34px, 6vw, 60px) 0; }
 }
 .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; justify-content: space-between; }
 .site-footer strong { color: var(--ink); font-family: "Fraunces", serif; }
+.site-footer .qr-block { flex-direction: column; justify-content: center; text-align: center; gap: 14px; margin-bottom: 30px; }
+.site-footer .qr-block img { display: block; padding: 10px; background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(26,16,8,0.12); }
+.site-footer .qr-block p { margin: 0; max-width: 28ch; font-size: .92rem; }
 
 /* ---------- Scroll reveal ---------- */
 [data-reveal] {
